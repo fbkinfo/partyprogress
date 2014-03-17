@@ -1,0 +1,6 @@
+
+*.espressostorage
+
+*.tmproj
+node_modules/
+vendor/

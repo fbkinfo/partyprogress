@@ -1,0 +1,1 @@
+Сайт собран с помощью Bower и Grunt http://blog.elenakolevska.com/using-grunt-with-laravel-and-bootstrap/
