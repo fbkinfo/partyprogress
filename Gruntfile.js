@@ -6,8 +6,10 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
-		  'vendor/jquery/jquery.js',
+          'vendor/jquery/dist/jquery.js',
 		  'vendor/chosen/chosen.jquery.js',
+          'vendor/select2/select2.js',
+          'vendor/select2/select2_locale_ru.js',
           'vendor/social-likes/src/social-likes.js',
           'assets/js/src/main.js'
         ],
@@ -48,8 +50,10 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: [
-		  'vendor/jquery/jquery.js',
+		  'vendor/jquery/dist/jquery.js',
 		  'vendor/chosen/chosen.jquery.js',
+		  'vendor/select2/select2.js',
+		  'vendor/select2/select2_locale_ru.js',
           'vendor/social-likes/src/social-likes.js',
           'assets/js/src/main.js'
 			],

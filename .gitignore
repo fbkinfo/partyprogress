@@ -4,3 +4,4 @@
 *.tmproj
 node_modules/
 vendor/
+.idea
