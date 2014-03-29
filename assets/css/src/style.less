@@ -111,6 +111,13 @@
 
 .select2-drop {
   margin-top: -1px;
+  -webkit-box-shadow: none;
+  box-shadow: none !important;
+}
+
+.select2-drop.select2-drop-above {
+  -webkit-box-shadow: none;
+  box-shadow: none !important;
 }
 
 .select2-search {
@@ -142,6 +149,11 @@
   border: 1px solid @main-color !important;
   background: none !important;
   height: 34px !important;
+}
+
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices {
+  box-shadow: none !important;
 }
 
 /*.chosen-container-single .chosen-single {
