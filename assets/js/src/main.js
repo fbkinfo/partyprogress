@@ -56,6 +56,30 @@ $('a[href=#donate]').on('click', function(e) {
     });
 });
 
+$('#btnGoDonate').on('click', function(e) {
+    e.preventDefault();
+
+    var summa = $('#summa').val().replace(/[^\d.]/g, "");
+
+    var passport = {
+        series: $('#series').val().replace(/[^\d.]/g, ""),
+        number: $('#number').val().replace(/[^\d.]/g, "")
+    };
+
+    var birthday = {
+        d: $('#day').val().replace(/[^\d.]/g, ""),
+        m: $('#month').val().replace(/[^\d.]/g, ""),
+        y: $('#year').val().replace(/[^\d.]/g, "")
+    };
+
+    var targets = 'Добр. пожертв. в изб. фонд канд. Навального А.А., пасп ' + passport.series + ' ' + passport.number + ', д.р. ' + birthday.d + '.' + birthday.m + '.' + birthday.y + ', гражд. РФ.';
+
+    $('#targets').val(targets);
+    $('#sum').val(summa);
+
+    $('#yandex-form').submit();
+});
+
 $('#donate__form-form input[type=checkbox]').on('change', function() {
     $('#donate__form-form button').toggleClass('disabled');
 });
