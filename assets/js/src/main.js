@@ -72,7 +72,7 @@ $('#btnGoDonate').on('click', function(e) {
         y: $('#year').val().replace(/[^\d.]/g, "")
     };
 
-    var targets = 'Добр. пожертв. в изб. фонд канд. Навального А.А., пасп ' + passport.series + ' ' + passport.number + ', д.р. ' + birthday.d + '.' + birthday.m + '.' + birthday.y + ', гражд. РФ.';
+    var targets = 'Добр. пожертвование на уставную деятельность, пасп ' + passport.series + ' ' + passport.number + ', д.р. ' + birthday.d + '.' + birthday.m + '.' + birthday.y + ', гражд. РФ.';
 
     $('#targets').val(targets);
     $('#sum').val(summa);
