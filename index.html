@@ -181,7 +181,7 @@
                 <form role="form" method="post" class="validate" id="donate__form-form">
                     <div class="form-group">
                         <label for="summa">Сумма:</label>
-                        <input type="text" name="summa" id="summa" class="form-control validate" required="required">
+                        <input type="text" name="summa" id="summa" class="form-control validate" required="required" pattern="\d" data-index="1">
                         <span class="help-block hide"></span>
                     </div>
                     <div class="form-group" id="passport">
@@ -189,10 +189,10 @@
 
                         <div class="row">
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="series" id="series" required="required">
+                                <input type="text" class="form-control" name="series" id="series" required="required" pattern="[0-9]{4}" maxlength="4" data-index="2">
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="number" id="number" required="required">
+                                <input type="text" class="form-control" name="number" id="number" required="required" pattern="[0-9]{6}" maxlength="6" data-index="3">
                             </div>
                         </div>
                         <span class="help-block"></span>
@@ -202,12 +202,10 @@
 
                         <div class="row">
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" name="day" maxlength="2" id="day"
-                                       required="required">
+                                <input type="text" class="form-control" name="day" maxlength="2" id="day" required="required" pattern="[0-9]{2}">
                             </div>
                             <div class="col-sm-6">
-                                <select data-placeholder=" " name='month' class="form-control" id="month"
-                                        required="required">
+                                <select data-placeholder=" " name='month' class="form-control" id="month" required="required">
                                     <option value=""></option>
                                     <option value="01">Январь</option>
                                     <option value="02">Февраль</option>
@@ -224,8 +222,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" name="year" maxlength="4" id="year"
-                                       required="required">
+                                <input type="text" class="form-control" name="year" maxlength="4" id="year" required="required" pattern="[0-9]{2,4}">
                             </div>
                         </div>
                         <span class="help-block"></span>

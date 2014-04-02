@@ -51,7 +51,10 @@ $('a[href=#donate]').on('click', function(e) {
 
     $('.donate__stage1').fadeToggle('fast', function() {
         $('.donate__stage2').fadeToggle('fast', function() {
-            $("select[name=month]").select2();
+            $("#month").select2();
+            $("#month").on('change', function() {
+                $('#year').focus();
+            });
         });
     });
 });
@@ -82,4 +85,25 @@ $('#btnGoDonate').on('click', function(e) {
 
 $('#donate__form-form input[type=checkbox]').on('change', function() {
     $('#donate__form-form button').toggleClass('disabled');
+});
+
+$('#series').mask('9999', {
+    completed: function() {
+        $('#number').focus();
+    }
+});
+$('#number').mask('999999', {
+    completed: function() {
+        $('#day').focus();
+    }
+});
+$('#day').mask('99', {
+    completed: function() {
+        $("#month").select2('open');
+    }
+});
+$('#year').mask('9999', {
+    completed: function() {
+        $('#btnGoDonate').focus();
+    }
 });
