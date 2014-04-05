@@ -20,7 +20,7 @@ $(document).on('submit','#_form_1338',function(event){
 	}
 });
 
-$(document).on('submit', '#donate__form-form', function(e) {
+/*$(document).on('submit', '#donate__form-form', function(e) {
     var $summa = $('#summa');
     var $series = $('#series');
     var $number = $('#number');
@@ -44,7 +44,7 @@ $(document).on('submit', '#donate__form-form', function(e) {
         $('#birthday').addClass('has-error');
         $('#birthday .help-block').text('Введите дату рождения').removeClass('hide');
     }
-});
+});*/
 
 $('a[href=#donate]').on('click', function(e) {
     e.preventDefault();
@@ -62,18 +62,37 @@ $('a[href=#donate]').on('click', function(e) {
 $('#btnGoDonate').on('click', function(e) {
     e.preventDefault();
 
-    var summa = $('#summa').val().replace(/[^\d.]/g, "");
+    //var summa = $('#summa').val().replace(/[^\d.]/g, "");
+    var summa = $('.btn-money.active').data('summa');
+
+    if ( typeof summa === 'undefined' || summa === null ) {
+        $('#summa').addClass('has-error');
+        $('#summa .help-block').text('Выберите сумму пожертвования').removeClass('hide');
+        return;
+    }
 
     var passport = {
         series: $('#series').val().replace(/[^\d.]/g, ""),
         number: $('#number').val().replace(/[^\d.]/g, "")
     };
 
+    if ( passport.series === '' || passport.number === '' ) {
+        $('#passport').addClass('has-error');
+        $('#passport .help-block').text('Введите серию и номер паспорта').removeClass('hide');
+        return;
+    }
+
     var birthday = {
         d: $('#day').val().replace(/[^\d.]/g, ""),
         m: $('#month').val().replace(/[^\d.]/g, ""),
         y: $('#year').val().replace(/[^\d.]/g, "")
     };
+
+    if ( birthday.d === '' || birthday.m === '' || birthday.y === '' ) {
+        $('#birthday').addClass('has-error');
+        $('#birthday .help-block').text('Введите дату рождения').removeClass('hide');
+        return;
+    }
 
     var targets = 'Добр. пожертвование на уставную деятельность, пасп ' + passport.series + ' ' + passport.number + ', д.р. ' + birthday.d + '.' + birthday.m + '.' + birthday.y + ', гражд. РФ.';
 
@@ -107,3 +126,9 @@ $('#year').mask('9999', {
         $('#btnGoDonate').focus();
     }
 });
+
+$('.btn-money').on('click', function(e) {
+    e.preventDefault();
+    $('.btn-money').removeClass('active');
+    $(this).addClass('active');
+})

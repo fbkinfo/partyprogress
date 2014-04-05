@@ -1,0 +1,30 @@
+a.btn-money {
+  position: relative;
+  color: #000000;
+  border-width: 1px;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: #ffffff;
+    border-width: 1px;
+    background-color: @main-color;
+  }
+
+  &:hover span,
+  &:focus span,
+  &:active span,
+  &.active span {
+    color: #ffffff;
+  }
+}
+
+a.btn-money span {
+  display: block;
+  position: absolute;
+  right: 2px;
+  top: 14px;
+  color: #999;
+  font-size: 12px;
+}

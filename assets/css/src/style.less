@@ -76,6 +76,9 @@
 @import (less) "../../../vendor/select2/select2.css";
 @import (less) "../../../vendor/select2/select2-bootstrap.css";
 
+@import (less) "buttons.less";
+@import (less) "offer.less";
+
 .select2-container .select2-choice {
   background: none !important;
   padding: 3px 0 0 8px;
@@ -154,6 +157,10 @@
 .select2-container-active .select2-choice,
 .select2-container-active .select2-choices {
   box-shadow: none !important;
+}
+
+.select2-default span {
+  margin-left: 22px;
 }
 
 /*.chosen-container-single .chosen-single {
@@ -373,6 +380,13 @@ body > .wrap {
 
 }
 
+input::-webkit-input-placeholder {
+  text-align: center;
+}
+input:-moz-placeholde {
+  text-align: center;
+}
+
 .donate {
   margin: 50px auto 0;
   max-width: 760px;
@@ -430,3 +444,4 @@ body > .wrap {
   line-height: 130%;
   padding-top: 3px;
 }
+
