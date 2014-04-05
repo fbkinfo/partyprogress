@@ -20,32 +20,6 @@ $(document).on('submit','#_form_1338',function(event){
 	}
 });
 
-/*$(document).on('submit', '#donate__form-form', function(e) {
-    var $summa = $('#summa');
-    var $series = $('#series');
-    var $number = $('#number');
-    var $day = $('#day');
-    var $month = $('#month');
-    var $year = $('#year');
-
-    if ( $summa.val() == '' ) {
-        $summa.parent().addClass('has-error');
-        $summa.next().text('Введите сумму платежа').removeClass('hide');
-        e.preventDefault();
-    }
-
-    if ( $series.val() == '' || $number.val() == '' ) {
-        $('#passport').addClass('has-error');
-        $('#passport .help-block').text('Введите серию и номер паспорта').removeClass('hide');
-        e.preventDefault();
-    }
-
-    if ( $day.val() == '' || $month.val() == '' || $year.val() == '' ) {
-        $('#birthday').addClass('has-error');
-        $('#birthday .help-block').text('Введите дату рождения').removeClass('hide');
-    }
-});*/
-
 $('a[href=#donate]').on('click', function(e) {
     e.preventDefault();
 
@@ -55,6 +29,7 @@ $('a[href=#donate]').on('click', function(e) {
             $("#month").on('change', function() {
                 $('#year').focus();
             });
+            $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
         });
     });
 });
@@ -62,7 +37,6 @@ $('a[href=#donate]').on('click', function(e) {
 $('#btnGoDonate').on('click', function(e) {
     e.preventDefault();
 
-    //var summa = $('#summa').val().replace(/[^\d.]/g, "");
     var summa = $('.btn-money.active').data('summa');
 
     if ( typeof summa === 'undefined' || summa === null ) {
@@ -131,4 +105,4 @@ $('.btn-money').on('click', function(e) {
     e.preventDefault();
     $('.btn-money').removeClass('active');
     $(this).addClass('active');
-})
+});
