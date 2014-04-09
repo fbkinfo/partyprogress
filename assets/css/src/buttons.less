@@ -1,7 +1,8 @@
 a.btn-money {
   position: relative;
-  color: #000000;
+  color: @main-color;
   border-width: 1px;
+  font-weight: bold;
 
   &:hover,
   &:focus,
@@ -27,4 +28,18 @@ a.btn-money span {
   top: 14px;
   color: #999;
   font-size: 12px;
+}
+
+#summa .col-xs-4 {
+  padding: 5px;
+}
+
+#summa .col-xs-4:first-child {
+  padding-left: 15px;
+  padding-right: 5px;
+}
+
+#summa .col-xs-4:last-child {
+  padding-left: 5px;
+  padding-right: 15px;
 }
