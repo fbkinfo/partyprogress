@@ -68,7 +68,7 @@ $('#btnGoDonate').on('click', function(e) {
         return;
     }
 
-    var targets = 'Добр. пожертвование на уставную деятельность, пасп ' + passport.series + ' ' + passport.number + ', д.р. ' + birthday.d + '.' + birthday.m + '.' + birthday.y + ', гражд. РФ.';
+    var targets = 'Пожертв. Полит.партии «ПАРТИЯ ПРОГРЕССА», пасп ' + passport.series + ' ' + passport.number + ', д.р. ' + birthday.d + '.' + birthday.m + '.' + birthday.y + ', гражд. РФ.';
 
     $('#targets').val(targets);
     $('#sum').val(summa);
