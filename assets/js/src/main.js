@@ -25,7 +25,14 @@ $('a[href=#donate]').on('click', function(e) {
 
     $('.donate__stage1').fadeToggle('fast', function() {
         $('.donate__stage2').fadeToggle('fast', function() {
-            $("#month").select2();
+            $("#month").select2({
+                matcher: function(term, text, option) {
+                    if ( String(option.context.outerHTML).toLowerCase().indexOf(term) !== -1 ) {
+                        return true;
+                    }
+                    return false;
+                }
+            });
             $("#month").on('change', function() {
                 $('#year').focus();
             });
@@ -37,11 +44,11 @@ $('a[href=#donate]').on('click', function(e) {
 $('#btnGoDonate').on('click', function(e) {
     e.preventDefault();
 
-    var summa = $('.btn-money.active').data('summa');
+    var summa = $('#summa-input').val().replace(/[^\d.]/g, "");
 
-    if ( typeof summa === 'undefined' || summa === null ) {
+    if ( typeof summa === 'undefined' || summa === null || summa === '' ) {
         $('#summa').addClass('has-error');
-        $('#summa .help-block').text('Выберите сумму пожертвования').removeClass('hide');
+        $('#summa .help-block').text('Выберите или введите сумму пожертвования').removeClass('hide');
         return;
     }
 
@@ -105,4 +112,21 @@ $('.btn-money').on('click', function(e) {
     e.preventDefault();
     $('.btn-money').removeClass('active');
     $(this).addClass('active');
+    $('#summa-input').val($(this).data('summa'));
+    $('#series').focus();
+});
+
+$('a[href=#offer]').on('click', function(e) {
+    e.preventDefault();
+
+    $('.offer').toggleClass('hidden');
+
+    if ( !$('.offer').hasClass('hidden') ) {
+        $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
+    }
+});
+
+$('a[href=#offer__close]').on('click', function(e) {
+    e.preventDefault();
+    $('.offer').toggleClass('hidden');
 });

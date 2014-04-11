@@ -76,92 +76,9 @@
 @import (less) "../../../vendor/select2/select2.css";
 @import (less) "../../../vendor/select2/select2-bootstrap.css";
 
+@import (less) "select2.less";
 @import (less) "buttons.less";
 @import (less) "offer.less";
-
-.select2-container .select2-choice {
-  background: none !important;
-  padding: 3px 0 0 8px;
-}
-
-.form-control .select2-choice {
-  border-radius: 0;
-  height: 32px;
-
-}
-
-.form-control .select2-choice .select2-arrow {
-  border-radius: 0;
-  box-shadow: none;
-  border: 1px solid @main-color;
-  background: url(../img/arrow.png) no-repeat right;
-  height: @input-height-base;
-  width: 39px;
-}
-
-.form-control.select2-container.select2-dropdown-open {
-  border-color: @main-color;
-  border-radius: 0;
-}
-
-.form-control .select2-container.select2-dropdown-open .select2-choices {
-  border-radius: 0;
-}
-
-.form-control.select2-container .select2-choices {
-  border-radius: 0;
-}
-
-.select2-drop {
-  margin-top: -1px;
-  -webkit-box-shadow: none;
-  box-shadow: none !important;
-}
-
-.select2-drop.select2-drop-above {
-  -webkit-box-shadow: none;
-  box-shadow: none !important;
-}
-
-.select2-search {
-  margin-top: 4px;
-}
-
-.select2-drop-above .select2-search {
-  margin-top: 0;
-}
-
-.select2-drop.select2-drop-above {
-  margin-top: 1px;
-}
-
-.select2-drop-active {
-  border: 1px solid @main-color;
-  border-top: none;
-}
-
-.select2-drop.select2-drop-above.select2-drop-active {
-  border-top: 1px solid @main-color;
-}
-
-.select2-dropdown-open.select2-drop-above {
-  border: 0 !important;
-}
-
-.select2-dropdown-open.select2-drop-above .select2-choice, .select2-dropdown-open.select2-drop-above .select2-choices {
-  border: 1px solid @main-color !important;
-  background: none !important;
-  height: 34px !important;
-}
-
-.select2-container-active .select2-choice,
-.select2-container-active .select2-choices {
-  box-shadow: none !important;
-}
-
-.select2-default span {
-  margin-left: 22px;
-}
 
 /*.chosen-container-single .chosen-single {
   border-radius: 0;
@@ -443,4 +360,8 @@ input:-moz-placeholde {
   font-size: 10px;
   line-height: 130%;
   padding-top: 3px;
+}
+
+#month span {
+  display: none;
 }
