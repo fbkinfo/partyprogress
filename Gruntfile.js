@@ -51,12 +51,12 @@ module.exports = function (grunt) {
             },
             scripts: {
                 files: [
-                    'vendor/jquery/dist/jquery.js',
+                    'vendor/jquery/dist/jquery.min.js',
                     //'vendor/chosen/chosen.jquery.js',
-                    'vendor/select2/select2.js',
+                    'vendor/select2/select2.min.js',
                     'vendor/select2/select2_locale_ru.js',
                     'vendor/social-likes/src/social-likes.js',
-                    'vendor/jquery-maskedinput/src/jquery.maskedinput.js',
+                    'vendor/jquery-maskedinput/src/jquery.maskedinput.min.js',
                     'assets/js/src/main.js'
                 ],
                 tasks: ['concat', 'uglify'],

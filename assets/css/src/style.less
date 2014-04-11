@@ -16,6 +16,7 @@
 @border-radius-small: 0px;
 @btn-default-bg: @main-color;
 @btn-default-color: white;
+@grid-gutter-width: 10px;
 
 // Reset
 @import "../../../vendor/bootstrap/less/normalize.less";
@@ -266,6 +267,21 @@ body > .wrap {
     padding: 30px 0 30px;
   }
 
+  #donate_container {
+    margin: 50px 50px;
+  }
+
+  .donate__text {
+    padding: 0 10px;
+  }
+
+  .col-xs-4:first-child, .col-xs-3:first-child {
+    padding-left: 0;
+  }
+
+  .col-xs-4:last-child, .col-xs-3:last-child, .col-xs-8:last-child {
+    padding-right: 0;
+  }
 }
 
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
@@ -278,7 +294,6 @@ body > .wrap {
     padding-top: 10px;
     padding-left: 42px;
   }
-
 }
 
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
@@ -333,28 +348,28 @@ input:-moz-placeholde {
   width: 290px;
 }
 
-.donate__form .col-sm-4 {
+/*.donate__form .col-xs-4 {
   padding-left: 15px;
   padding-right: 5px;
 }
 
-.donate__form .col-sm-8 {
+.donate__form .col-xs-8 {
   padding-left: 5px;
   padding-right: 15px;
 }
 
-.donate__form .col-sm-6 {
+.donate__form .col-xs-6 {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-.donate__form .col-sm-3:first-child {
+.donate__form .col-xs-3:first-child {
   padding-right: 0;
 }
 
-.donate__form .col-sm-3:last-child {
+.donate__form .col-xs-3:last-child {
   padding-left: 0;
-}
+}*/
 
 .offer__text {
   font-size: 10px;

@@ -1,39 +1,35 @@
 //$("#region").chosen({no_results_text: "Регион не нaйден"});
 $("#region").select2();
 
-$(document).on('submit','#_form_1338',function(event){
-   	var $email = $('#email');
-	if($email.val() != '') {
-		var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if(pattern.test($email.val())){
-			$email.parent().removeClass('has-error has-feedback');
-			$email.next().addClass('hide');
-		} else {
-			$email.parent().addClass('has-error has-feedback');
-			$email.next().text('Введите правильный e-mail').removeClass('hide');
-			event.preventDefault();
-		}
-	} else {
-		$email.parent().addClass('has-error has-feedback');
-		$email.next().text('Это поле надо заполнить').removeClass('hide');
-		event.preventDefault();
-	}
+$(document).on('submit', '#_form_1338', function (event) {
+    var $email = $('#email');
+    if ( $email.val() != '' ) {
+        var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if ( pattern.test($email.val()) ) {
+            $email.parent().removeClass('has-error has-feedback');
+            $email.next().addClass('hide');
+        } else {
+            $email.parent().addClass('has-error has-feedback');
+            $email.next().text('Введите правильный e-mail').removeClass('hide');
+            event.preventDefault();
+        }
+    } else {
+        $email.parent().addClass('has-error has-feedback');
+        $email.next().text('Это поле надо заполнить').removeClass('hide');
+        event.preventDefault();
+    }
 });
 
-$('a[href=#donate]').on('click', function(e) {
+$('a[href=#donate]').on('click', function (e) {
     e.preventDefault();
 
-    $('.donate__stage1').fadeToggle('fast', function() {
-        $('.donate__stage2').fadeToggle('fast', function() {
+    $('.donate__stage1').fadeToggle('fast', function () {
+        $('.donate__stage2').fadeToggle('fast', function () {
             $("#month").select2({
-                matcher: function(term, text, option) {
-                    if ( String(option.context.outerHTML).toLowerCase().indexOf(term) !== -1 ) {
-                        return true;
-                    }
-                    return false;
+                matcher: function (term, text, option) {
+                    return (String(option.context.outerHTML).toLowerCase().indexOf(term) !== -1);
                 }
-            });
-            $("#month").on('change', function() {
+            }).on('change', function () {
                 $('#year').focus();
             });
             $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
@@ -41,7 +37,7 @@ $('a[href=#donate]').on('click', function(e) {
     });
 });
 
-$('#btnGoDonate').on('click', function(e) {
+$('#btnGoDonate').on('click', function (e) {
     e.preventDefault();
 
     var summa = $('#summa-input').val().replace(/[^\d.]/g, "");
@@ -83,32 +79,32 @@ $('#btnGoDonate').on('click', function(e) {
     $('#yandex-form').submit();
 });
 
-$('#donate__form-form input[type=checkbox]').on('change', function() {
+$('#donate__form-form input[type=checkbox]').on('change', function () {
     $('#donate__form-form button').toggleClass('disabled');
 });
 
 $('#series').mask('9999', {
-    completed: function() {
+    completed: function () {
         $('#number').focus();
     }
 });
 $('#number').mask('999999', {
-    completed: function() {
+    completed: function () {
         $('#day').focus();
     }
 });
 $('#day').mask('99', {
-    completed: function() {
+    completed: function () {
         $("#month").select2('open');
     }
 });
 $('#year').mask('9999', {
-    completed: function() {
+    completed: function () {
         $('#btnGoDonate').focus();
     }
 });
 
-$('.btn-money').on('click', function(e) {
+$('.btn-money').on('click', function (e) {
     e.preventDefault();
     $('.btn-money').removeClass('active');
     $(this).addClass('active');
@@ -116,17 +112,19 @@ $('.btn-money').on('click', function(e) {
     $('#series').focus();
 });
 
-$('a[href=#offer]').on('click', function(e) {
+$('a[href=#offer]').on('click', function (e) {
     e.preventDefault();
 
-    $('.offer').toggleClass('hidden');
+    var offer = $('.offer');
 
-    if ( !$('.offer').hasClass('hidden') ) {
+    offer.toggleClass('hidden');
+
+    if ( !offer.hasClass('hidden') ) {
         $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
     }
 });
 
-$('a[href=#offer__close]').on('click', function(e) {
+$('a[href=#offer__close]').on('click', function (e) {
     e.preventDefault();
     $('.offer').toggleClass('hidden');
 });
