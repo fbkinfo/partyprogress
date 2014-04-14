@@ -144,9 +144,13 @@ $('a[href=#offer__close]').on('click', function (e) {
 
 $('.social-likes').on('popup_opened.social-likes', function(event, service) {
     if ( typeof dataLayer !== 'undefined' ) {
+        console.log('add ' + service + ' to dataLayer');
+
         dataLayer.push({
             'social-network': service,
             'event': 'share'
         });
+    } else {
+        console.log('dataLayer not found');
     }
 });
