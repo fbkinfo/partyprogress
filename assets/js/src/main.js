@@ -1,4 +1,3 @@
-//$("#region").chosen({no_results_text: "Регион не нaйден"});
 $("#region").select2();
 
 $(document).on('submit', '#_form_1338', function (event) {
@@ -47,6 +46,20 @@ $('#btnGoDonate').on('click', function (e) {
         $('#summa .help-block').text('Выберите или введите сумму пожертвования').removeClass('hide');
         return;
     }
+
+    if ( summa < 31 ) {
+        $('#summa').addClass('has-error');
+        $('#summa .help-block').text('Введенная сумма не достаточна для борьбы со злом').removeClass('hide');
+        return;
+    }
+
+    var commission = parseInt(summa, 10) * 0.02;
+
+    if ( commission < 30 ) {
+        commission = 30;
+    }
+
+    summa = summa - commission;
 
     var passport = {
         series: $('#series').val().replace(/[^\d.]/g, ""),
@@ -129,7 +142,7 @@ $('a[href=#offer__close]').on('click', function (e) {
     $('.offer').toggleClass('hidden');
 });
 
-$('.social-likes').on('popup_opened.social-likes', function(event, service, number) {
+$('.social-likes').on('popup_opened.social-likes', function(event, service) {
     if ( typeof dataLayer !== 'undefined' ) {
         dataLayer.push({
             'social-network': service,
