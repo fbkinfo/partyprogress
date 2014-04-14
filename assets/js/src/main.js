@@ -128,3 +128,12 @@ $('a[href=#offer__close]').on('click', function (e) {
     e.preventDefault();
     $('.offer').toggleClass('hidden');
 });
+
+$('.social-likes').on('popup_opened.social-likes', function(event, service, number) {
+    if ( typeof dataLayer !== 'undefined' ) {
+        dataLayer.push({
+            'social-network': service,
+            'event': 'share'
+        });
+    }
+});
