@@ -1,4 +1,3 @@
-@import "bower_components/angular-ui-select/dist/select.css";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -6331,33 +6330,8 @@ h1 {
   color: #555;
   line-height: 1.42;
 }
-.ui-select-bootstrap .btn-default-focus {
-  outline: 0;
-  outline-offset: 0;
-  box-shadow: none;
-  border-color: #999;
-}
 .ui-select-bootstrap a {
   text-decoration: none;
-}
-.ui-select-bootstrap > .ui-select-match > .caret {
-  position: absolute;
-  right: 10px;
-  top: 13px;
-  border: 0;
-  display: block;
-  width: 16px;
-  height: 10px;
-  background-image: url("images/caret.png");
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .ui-select-bootstrap > .ui-select-match > .caret {
-    background-image: url("images/caret@2x.png");
-    background-size: 16px 10px;
-  }
-}
-.ui-select-bootstrap .ui-select-highlight {
-  color: #fff;
 }
 .offer__text a {
   color: #333333;
@@ -6411,6 +6385,83 @@ h1 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+/* Style when highlighting a search. */
+.ui-select-highlight {
+  color: #fff;
+  font-weight: bold;
+}
+.ui-select-offscreen {
+  clip: rect(0 0 0 0) !important;
+  width: 1px !important;
+  height: 1px !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  outline: 0 !important;
+  left: 0px !important;
+  top: 0px !important;
+}
+/* Bootstrap theme */
+/* Helper class to show styles when focus */
+.btn-default-focus {
+  color: #333;
+  text-decoration: none;
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none;
+  border-color: #999 !important;
+}
+/* Fix Bootstrap dropdown position when inside a input-group */
+.input-group > .ui-select-bootstrap.dropdown {
+  /* Instead of relative */
+  position: static;
+}
+.input-group > .ui-select-bootstrap > input.ui-select-search.form-control {
+  border-radius: 4px;
+  /* FIXME hardcoded value :-/ */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.ui-select-bootstrap > .ui-select-match {
+  /* Instead of center because of .btn */
+  text-align: left;
+}
+.ui-select-bootstrap > .ui-select-match > .caret {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+  border: 0;
+  display: block;
+  width: 16px;
+  height: 10px;
+  background-image: url("images/caret.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .ui-select-bootstrap > .ui-select-match > .caret {
+    background-image: url("images/caret@2x.png");
+    background-size: 16px 10px;
+  }
+}
+.ui-select-bootstrap > .ui-select-choices {
+  width: 100%;
+}
+/* See Scrollable Menu with Bootstrap 3 http://stackoverflow.com/questions/19227496 */
+.ui-select-bootstrap > .ui-select-choices {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+/* fix hide/show angular animation */
+.ui-select-match.ng-hide-add,
+.ui-select-search.ng-hide-add {
+  display: none !important;
+}
+/* Mark invalid Bootstrap */
+.ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match {
+  border-color: #D44950;
 }
 /* Add Component LESS Above */
 /* Required for Angular UI Bootstrap */
